@@ -4,17 +4,12 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      className="border mt-20 mb-4 border-gray-200 py-12 px-6"
-      style={{
-        marginLeft: 20,
-        marginRight: "30vw", // такой же отступ, как у центрального блока
-        width: "auto",
-        maxWidth: "calc(100vw - 30vw)", // чтобы не залезал под правое меню
-      }}
+      className="border mt-20 mb-4 border-gray-200 py-12 px-4 sm:px-6 w-full
+                 lg:ml-5 lg:mr-[20vw] lg:max-w-[calc(100vw-30vw)]"
     >
-      {" "}
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+       
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900 uppercase tracking-wide">
               RAGGIUNGICI
@@ -69,7 +64,7 @@ const Footer = () => {
 
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900 uppercase tracking-wide">
-              Site Links
+              ACCESSIBILITÀ
             </h3>
             <hr className="border-l-gray-950 w-10/12 my-5 border-gray-200"/>
             <p className="text-sm text-gray-600">
