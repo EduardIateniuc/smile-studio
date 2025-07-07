@@ -24,14 +24,14 @@ const btnsRight = [
 
 const imagesByBtn = {
   1: [
-    "/images/instruments.png",
-    "/images/elainers.png",
-    "/images/derjateli.jpg",
-  ],
-  2: [
     "/images/brackets.jpg",
     "/images/brackets-2.jpg",
     "/images/brackets-3.jpg",
+  ],
+  2: [
+    "/images/instruments.png",
+    "/images/elainers.png",
+    "/images/derjateli.jpg",
   ],
 };
 
@@ -59,28 +59,31 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-39 backdrop-blur-lg  px-4 py-4 flex justify-between items-center">
-        <h1 className="font-semibold font-karla text-xl">Smile Studio</h1>
-        <button
-          onClick={toggleSidebar}
-          className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+      <header className="lg:hidden top-0 left-0 right-0 z-39 backdrop-blur-lg px-4 py-4 flex justify-between items-center">
+        <h1 className="font-bold font-karla text-xl">SMILE STUDIO</h1>
+        <div className="flex items-center space-x-2">
+          <span className="font-karla text-sm font-bold">MENU</span>
+          <button
+            onClick={toggleSidebar}
+            className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
       </header>
-
+      <hr className="border-gray-200 w-full mt-2" />
       {sidebarOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-opacity-50 z-40 backdrop-blur-sm bg-black/10"
@@ -88,7 +91,7 @@ export default function Home() {
         />
       )}
       <div className="flex flex-1 w-full">
-        <div className="hidden lg:flex fixed text-right text-xl items-end top-24 h-1/3 -space-y-12 w-1/4 bg-white flex-col z-10 font-karla">
+        <div className="hidden lg:flex fixed text-right text-md items-end top-24 h-1/3 -space-y-12 w-1/4 bg-white flex-col z-10 font-karla">
           {btnsLeft.map((btn) => (
             <button
               key={btn.id}
@@ -102,14 +105,14 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex-1 p-8 flex flex-col items-center justify-center">
+        <div className="flex-1 w-full flex flex-col items-center justify-center px-0 py-4 lg:p-8 lg:mx-28">
           {!selectedBtn && (
             <p className="text-2xl font-bold text-center">
               Welcome to the Next.js App with Tailwind CSS!
             </p>
           )}
           {selectedBtn && (
-            <div className="grid mt-10 w-full max-w-2xl justify-center space-y-8 lg:space-y-14 items-center">
+            <div className="grid mt-10 w-full lg:w-11/12 max-w-2xl justify-center space-y-8 lg:space-y-14 items-center">
               {(imagesByBtn[selectedBtn] || []).map((src, idx) => (
                 <div
                   key={idx}
@@ -124,7 +127,7 @@ export default function Home() {
                     src={src}
                     alt=""
                     style={{ transition: "opacity 0.7s" }}
-                    className={`w-full object-cover ${
+                    className={`w-full lg:w-11/12 object-cover ${
                       loadingImages[idx] ? "opacity-0" : "opacity-100"
                     }`}
                     onLoad={() => handleImageLoad(idx)}
@@ -138,28 +141,27 @@ export default function Home() {
 
         <div className="hidden lg:flex fixed right-32 top-40 h-full w-1/5 bg-white flex-col items-start z-10 pl-6">
           <h1 className="font-semibold font-karla text-3xl">Smile Studio</h1>
-          <p className="font-normal">DOTT.SSA ALICE CABIANCA</p>
-          <hr className="w-full mt-7 border-gray-300 my-4" />
+          <p className="font-normal text-sm">DOTT.SSA ALICE CABIANCA</p>
+          <hr className="w-full mt-7 border-gray-500 my-4" />
           <div className="flex flex-col space-y-0.5 py-5 w-full">
             {btnsRight.map((btn) => (
               <Link
                 key={btn.id}
                 href={btn.href}
-                className="px-4 py-2 font-karla font-medium text-black hover:text-gray-700 active:text-gray-700 rounded text-left break-words w-full"
+                className={`px-4 py-2 text-md font-karla font-medium text-gray-500 hover:text-black active:text-black ${
+                  selectedBtn === btn.id ? " text-black" : ""
+                } rounded text-left break-words w-full`}
               >
                 {btn.label.toUpperCase()}
               </Link>
             ))}
           </div>
-          <hr className="w-full border-gray-300 my-4" />
-          <p className="font-karla text-sm text-gray-600">
-            MASTER DI II LIVELLO IN DOLORI OROFACCIALI E DISORDINI
-            TEMPOROMANDIBILARI ESPERTA IN MEDICINA DEL SONNO, ORTODONZIA
-            TRADIZIONALE E ORTODONZIA PEDIATRICA SI RICEVE SOLO SU APPUNTAMENTO.
+          <hr className="w-full border-gray-500 my-4" />
+          <p className="font-karla text-sm font-medium text-gray-500 mt-7">
+            FACEBOOK / TWITTER / INSTAGRAM
           </p>
         </div>
       </div>
-
       <div
         className={`lg:hidden fixed top-0 right-0 h-full w-80 bg-white z-50
     transform transition-all duration-700 ease-in-out
@@ -191,7 +193,9 @@ export default function Home() {
 
           <div className="space-y-4">
             <div>
-              <h3 className="font-medium text-lg text-gray-900 mb-2">Servizi</h3>
+              <h3 className="font-medium text-lg text-gray-900 mb-2">
+                Servizi
+              </h3>
               {btnsLeft.map((btn) => (
                 <button
                   key={btn.id}

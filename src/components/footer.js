@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      className="border mt-20 mb-4 border-gray-200 py-12 px-4 sm:px-6 w-full
+      className="border mt-20 mb-4 border-gray-400 py-12 px-4 sm:px-6 w-full
                  lg:ml-5 lg:mr-[20vw] lg:max-w-[calc(100vw-30vw)]"
     >
       <div className="max-w-6xl mx-auto">
@@ -27,9 +27,9 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-gray-900 uppercase tracking-wide">
               INDIRIZZO
             </h3>
-            <hr className="border-l-gray-950 w-10/12 border-gray-200"/>
+            <hr className="border-l-gray-950 w-10/12 my-5 border-gray-200"/>
             <div className="text-sm text-gray-600 space-y-2">
-              <h1>Smile Studio</h1>
+              <h1 className="text-gray-900 font-semibold">Smile Studio</h1>
               <p>
                 dott.ssa Alice Cabianca si trova in Via San Donà 106, 30174
                 Mestre (VE).
@@ -44,17 +44,17 @@ const Footer = () => {
             <hr className="border-l-gray-950 w-10/12 my-5 border-gray-200"/>
             <div className="space-y-4">
               <div>
-                <p className="text-sm font-semibold text-gray-600">
+                <p className="text-sm font-bold text-black">
                   Dal lunedì al giovedi
                 </p>
                 <p className="text-sm text-gray-600">9:00 - 12:30</p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600">Venerdì:</p>
+                <p className="text-sm font-bold text-black">Venerdì:</p>
                 <p className="text-sm text-gray-600">15:00 - 19:30</p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600">
+                <p className="text-sm font-bold text-black">
                   Sabato e domenica:
                 </p>
                 <p className="text-sm text-gray-600">Chiuso</p>
